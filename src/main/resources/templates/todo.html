@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Todo List</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+	integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+
+
+	<div class="container mt-5 ">
+		<h1 class="text-center py-2">Todo App</h1>
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>Description</th>
+					<th>Target Date</th>
+					<th colspan="2">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="e:${todo}">
+					<td th:text="${e. desciption}"></td>
+					<td th:text="${e. targetDate}"></td>
+
+					<td><i class="fas fa-edit fa-lg"></i> <a th:href="@{/update/{id}(id=${e.id})}"
+						class="btn btn-success"> Update</a></td>
+					<td><i class="fas fa-trash-alt fa-lg"></i> <a th:href="@{/delete/{id}(id=${e.id})}"
+						class="btn btn-danger">Delete</a></td>
+
+
+
+
+
+				</tr>
+
+			</tbody>
+
+		</table>
+		<div>
+			<i class="fas fa-plus-square fa-lg"></i> <a th:href="@{/addTodo}"
+				class="btn btn-primary">Add Todo</a>
+		</div>
+
+
+	</div>
+
+
+</body>
+</html>
